@@ -2,24 +2,26 @@ var Benchmark = require('benchmark').Benchmark;
 var spawn = require('child_process').spawn;
 var suite = new Benchmark.Suite();
 
+var primes = process.argv[2] || 5000;
+
 suite.add(
-	createBench('c++', './target/primes', [])
+	createBench('c++', './target/primes', [primes])
 );
 
 suite.add(
-	createBench('java', 'java', ['-cp', 'target', 'primes'])
+	createBench('java', 'java', ['-cp', 'target', 'primes', primes])
 );
 
 suite.add(
-	createBench('v8', './v8/out/native/d8', ['src/primes.js'])
+	createBench('v8', './v8/out/native/d8', ['src/primes.js', '--', primes])
 );
 
 suite.add(
-	createBench('ruby', 'ruby', ['src/primes.rb'])
+	createBench('ruby', 'ruby', ['src/primes.rb', primes])
 );
 
 suite.add(
-	createBench('python', 'python', ['src/primes.py'])
+	createBench('python', 'python', ['src/primes.py', primes])
 );
 
 suite.on('cycle', function(event) {

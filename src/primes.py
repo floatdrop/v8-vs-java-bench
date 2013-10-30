@@ -1,9 +1,10 @@
-
+import sys
+primes = int(sys.argv[1] if len(sys.argv) > 1 else "5000")
 
 class Primes:
     def __init__(self):
         self.prime_count = 0
-        self.primes = [0]*5000
+        self.primes = [0]*primes
 
     def getPrimeCount(self):
         return self.prime_count
@@ -23,7 +24,7 @@ class Primes:
 
 p = Primes()
 c = 1
-while p.getPrimeCount() < 5000:
+while p.getPrimeCount() < primes:
     if not p.isPrimeDivisible(c):
         p.addPrime(c)
     c += 1

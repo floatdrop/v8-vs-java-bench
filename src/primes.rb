@@ -1,9 +1,9 @@
 
 
 class Primes
-    def initialize
+    def initialize(c)
         @primes_count = 0
-        @primes = Array.new(5000)
+        @primes = Array.new(c)
     end
 
     attr_accessor :primes_count
@@ -29,9 +29,10 @@ class Primes
 end
 
 if __FILE__ == $0
-    p = Primes.new
+    primes = Integer(ARGV[0] || "5000")
+    p = Primes.new(primes)
     c = 1
-    while p.primes_count < 5000 do
+    while p.primes_count < primes do
         if not p.isPrimeDivisible(c)
             p.addPrime(c)
         end

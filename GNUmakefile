@@ -11,7 +11,7 @@ NODE_MODULES := node_modules
 .PHONY: bench build clean distclean
 
 bench:: $(NODE_MODULES) build
-	$(NODEJS) bench.js
+	$(NODEJS) bench.js $(PRIMES)
 
 build:: $(TARGET_DIR)/primes.class $(TARGET_DIR)/primes
 
