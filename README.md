@@ -1,3 +1,7 @@
+# Primes Benchmark
+
+This is benchmark, inspired by [Google IO](http://www.youtube.com/watch?v=UJPdhx5zTaw) talk on V8 performance.
+
 ## Requirements:
 `sudo apt-get install make g++ nodejs npm openjdk-7-jdk ruby python`
 
