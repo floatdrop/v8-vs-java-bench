@@ -1,18 +1,15 @@
-Для запуска необходимо наличие следующих пакетов:
-```
-sudo apt-get install make g++ nodejs npm openjdk-7-jdk
-```
+# Requirements:
+`sudo apt-get install make g++ nodejs npm openjdk-7-jdk ruby python`
 
-Запуск теста:
-```
-make
-```
+# Benchmark:
+`make`
 
-Мои результаты тестов:
-```
-c++ x 0.18 ops/sec ±0.23% (5 runs sampled)
-java x 0.21 ops/sec ±0.15% (6 runs sampled)
-node.js x 0.13 ops/sec ±0.16% (5 runs sampled)
-node.js is slower than c++ by 36.49%
-node.js is slower than java by 58.90%
+# Results:
+```bash
+$ make bench 5000
+c++ x 23.03 ops/sec ±1.81% (58 runs sampled)
+java x 4.17 ops/sec ±1.17% (25 runs sampled)
+v8 x 11.39 ops/sec ±0.77% (58 runs sampled)
+ruby x 0.72 ops/sec ±9.83% (8 runs sampled)
+python x 0.33 ops/sec ±0.57% (6 runs sampled)
 ```

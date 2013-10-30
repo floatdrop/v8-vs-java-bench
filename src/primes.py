@@ -3,7 +3,7 @@
 class Primes:
     def __init__(self):
         self.prime_count = 0
-        self.primes = [0]*50000
+        self.primes = [0]*5000
 
     def getPrimeCount(self):
         return self.prime_count
@@ -23,7 +23,7 @@ class Primes:
 
 p = Primes()
 c = 1
-while p.getPrimeCount() < 50000:
+while p.getPrimeCount() < 5000:
     if not p.isPrimeDivisible(c):
         p.addPrime(c)
     c += 1

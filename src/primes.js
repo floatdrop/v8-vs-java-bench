@@ -4,7 +4,7 @@ Breaking the JavaScript Speed Limit with V8
 
 function Primes() {
 	this.prime_count = 0;
-	this.primes = new Array(50000);
+	this.primes = new Array(5000);
 	this.getPrimeCount = function() { return this.prime_count; }
 	this.getPrime = function(i) { return this.primes[i]; }
 	this.addPrime = function(i) { this.primes[this.prime_count++] = i; }
@@ -19,7 +19,7 @@ function Primes() {
 function main() {
 	p = new Primes();
 	var c = 1;
-	while (p.getPrimeCount() < 50000) {
+	while (p.getPrimeCount() < 5000) {
 		if (!p.isPrimeDivisible(c)) {
 			p.addPrime(c);
 		}

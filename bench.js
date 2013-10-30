@@ -11,51 +11,23 @@ suite.add(
 );
 
 suite.add(
-	createBench('node.js', 'node', ['src/primes.js'])
+	createBench('v8', './v8/out/native/d8', ['src/primes.js'])
 );
 
-/*suite.add(
+suite.add(
+	createBench('ruby', 'ruby', ['src/primes.rb'])
+);
+
+suite.add(
 	createBench('python', 'python', ['src/primes.py'])
-);*/
+);
 
 suite.on('cycle', function(event) {
 	console.log('' + event.target);
 });
 
 suite.on('complete', function() {
-	var nodejs = this.filter(function(item) {
-		return item.name === 'node.js';
-	})[0];
-
-	this.forEach(function(bench) {
-		if(bench.name !== 'node.js') {
-			var perc = percentage(bench.stats.mean, nodejs.stats.mean);
-			if(perc > 0) {
-				console.log(
-					'node.js is slower than '
-					+ bench.name
-					+ ' by '
-					+ Benchmark.formatNumber(perc.toFixed(2)) + '%'
-				);
-			} else {
-				perc = -perc;
-				console.log(
-					'node.js is faster than '
-					+ bench.name
-					+ ' by '
-					+ Benchmark.formatNumber(perc.toFixed(2)) + '%'
-				);
-			}
-		}
-	});
-
-	function percentage(standard, value) {
-		if(standard == 0) {
-			throw new Error('cant compare to 0');
-		}
-		var diff = value - standard;
-		return diff / standard * 100;
-	}
+    console.log('Fastest is ' + this.filter('fastest').pluck('name'));
 });
 
 suite.run();

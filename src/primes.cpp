@@ -18,13 +18,13 @@ class Primes {
 		}
 	private:
 		volatile int prime_count;
-		volatile int primes[50000];
+		volatile int primes[5000];
 };
 
 int main() {
 	Primes p;
 	int c = 1;
-	while (p.getPrimeCount() < 50000) {
+	while (p.getPrimeCount() < 5000) {
 		if (!p.isPrimeDivisible(c)) {
 			p.addPrime(c);
 		}
