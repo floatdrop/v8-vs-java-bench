@@ -1,10 +1,10 @@
-# Requirements:
+## Requirements:
 `sudo apt-get install make g++ nodejs npm openjdk-7-jdk ruby python`
 
-# Benchmark:
+## Benchmark:
 `make`
 
-# Results:
+## Results:
 ```bash
 $ make bench 5000
 c++ x 23.03 ops/sec ±1.81% (58 runs sampled)
