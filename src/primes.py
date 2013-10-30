@@ -18,6 +18,8 @@ class Primes:
 
     def isPrimeDivisible(self, candidate):
         for i in range(1, self.prime_count - 1):
+            if (self.primes[i] * self.primes[i] > candidate):
+                return False
             if (candidate % self.primes[i]) == 0:
                 return True
         return False

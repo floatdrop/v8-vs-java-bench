@@ -20,6 +20,9 @@ class Primes
 
     def isPrimeDivisible(candidate)
         for i in 1..(@primes_count - 1) 
+            if (@primes[i] * @primes[i] > candidate)
+                return false
+            end
             if (candidate % @primes[i]) == 0
                 return true
             end

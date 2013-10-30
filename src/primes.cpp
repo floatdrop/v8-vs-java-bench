@@ -20,6 +20,7 @@ class Primes {
 		
 		bool isPrimeDivisible(int candidate) {
 			for (int i = 1; i < prime_count; ++i) {
+                if (primes[i] * primes[i] > candidate) return false;
 				if ((candidate % primes[i]) == 0) return true;
 			}
 			return false;

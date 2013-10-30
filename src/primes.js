@@ -10,6 +10,7 @@ function Primes(c) {
 	this.addPrime = function(i) { this.primes[this.prime_count++] = i; };
 	this.isPrimeDivisible = function(candidate) {
 		for (var i = 1; i < this.prime_count; ++i) {
+            if (this.primes[i] * this.primes[i] > candidate) return false;
 			if ((candidate % this.primes[i]) === 0) return true;
 		}
 		return false;

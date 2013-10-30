@@ -21,6 +21,10 @@ suite.add(
 );
 
 suite.add(
+	createBench('pypy', 'pypy', ['src/primes.py', primes])
+);
+
+suite.add(
 	createBench('python', 'python', ['src/primes.py', primes])
 );
 

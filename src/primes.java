@@ -15,6 +15,7 @@ public class primes {
 
 		public boolean isPrimeDivisible(int candidate) {
 			for (int i = 1; i < this.prime_count; ++i) {
+                if (this.primes[i] * this.primes[i] > candidate) return false;
 				if ((candidate % this.primes[i]) == 0) return true;
 			}
 			return false;
